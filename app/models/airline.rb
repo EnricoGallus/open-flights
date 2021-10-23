@@ -7,7 +7,8 @@ class Airline < ApplicationRecord
     airline.slug = airline.name.parameterize
   end
 
-  def average_score
+  def avg_score
+    return 0 if reviews.empty?
     reviews.average(:score).to_f.round(2)
   end
 end
